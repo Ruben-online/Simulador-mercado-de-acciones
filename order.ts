@@ -26,4 +26,8 @@
     public getType(): string {
         return this.type
     }
+
+    public reduceAmount(quantity: number): void {
+        this.amount -= quantity
+    }
 }
