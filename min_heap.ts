@@ -1,6 +1,6 @@
 import { Order } from "./order"
 
-class MinHeap {
+ export class MinHeap {
     private heap: Order[];
     private n: number;
 
@@ -10,18 +10,30 @@ class MinHeap {
     }
     
     public insert(order: Order): void {
+        console.log(`Insertando orden en MinHeap: ${order.getAmount()} acciones a $${order.getPrice()}`);
         this.n++;
         this.heap[this.n] = order;
         this.swim(this.n);
     }
 
     public extractMin(): Order | undefined {
-        if (this.n === 0) return undefined;
+        if (this.n === 0) {
+            console.log("MinHeap esta vacio.");
+            return undefined;
+        }
         const min = this.heap[1];
+        console.log(`Extrayendo orden de MinHeap: ${min.getAmount()} acciones a $${min.getPrice()}`);
         this.swap(1, this.n);
         this.n--;
         this.sink(1);
         return min;
+    }
+
+    public peekMin(): Order | undefined {
+        if (this.n === 0) {
+            return undefined;
+        }
+        return this.heap[1];
     }
 
     private swim(k: number): void {
