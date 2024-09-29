@@ -1,4 +1,4 @@
-class Transaction {
+export class Transaction {
     private company: string;
     private quantity: number;
     private price: number;
@@ -34,7 +34,7 @@ class Transaction {
     }
     
     public showTransaction(): void {
-        console.log(`Transacción: ${this.quantity} acciones de ${this.company} a $${this.price} cada una, comprador: 
+        console.log(`Transaccion: ${this.quantity} acciones de ${this.company} a $${this.price} cada una, comprador: 
             ${this.buyer}, vendedor: ${this.seller}`);
     }
     
